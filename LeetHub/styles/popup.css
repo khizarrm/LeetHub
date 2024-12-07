@@ -1,0 +1,134 @@
+@import 'colors.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  width: 320px;
+  background-color: var(--leetcode-white);
+  color: var(--leetcode-black);
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--leetcode-gray-3);
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--leetcode-black);
+}
+
+.status-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.status-card {
+  background: var(--leetcode-white);
+  border: 1px solid var(--leetcode-gray-3);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.status-icon {
+  color: var(--leetcode-orange);
+  background: rgba(255, 161, 22, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-content {
+  flex: 1;
+}
+
+.status-content h3 {
+  font-size: 14px;
+  color: var(--leetcode-black);
+  margin-bottom: 4px;
+}
+
+.status-content p {
+  font-size: 13px;
+  color: var(--leetcode-gray-2);
+}
+
+.button {
+  background-color: var(--leetcode-orange);
+  color: var(--leetcode-white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #FF9100;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--leetcode-gray-3);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 12px;
+  color: var(--leetcode-gray-2);
+}
+
+/* Status Variations */
+.status-success .status-icon {
+  color: var(--leetcode-green);
+  background: rgba(44, 187, 93, 0.1);
+}
+
+.button-success {
+  background-color: var(--leetcode-green);
+}
+
+.button-success:hover {
+  background-color: #25A451;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}

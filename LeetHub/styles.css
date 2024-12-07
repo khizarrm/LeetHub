@@ -1,0 +1,133 @@
+:root {
+  --primary-color: #FFA116;
+  --secondary-color: #B3B3B3;
+  --success-color: #00B8A3;
+  --background-color: #FFFFFF;
+  --text-color: #262626;
+  --border-color: #E4E4E4;
+  --hover-color: #FFB23F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  width: 320px;
+  background-color: var(--background-color);
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+}
+
+h1 {
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.status-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.status-card {
+  background: #F9F9F9;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.status-icon {
+  color: var(--primary-color);
+  background: rgba(255, 161, 22, 0.1);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-content {
+  flex: 1;
+}
+
+.status-content h3 {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.status-content p {
+  font-size: 13px;
+  color: var(--secondary-color);
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+}
+
+.footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 12px;
+  color: var(--secondary-color);
+}
+
+/* Status Variations */
+.status-success .status-icon {
+  color: var(--success-color);
+  background: rgba(0, 184, 163, 0.1);
+}
+
+.button-success {
+  background-color: var(--success-color);
+}
+
+.button-success:hover {
+  background-color: #00A393;
+}

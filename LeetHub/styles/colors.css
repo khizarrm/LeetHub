@@ -1,0 +1,13 @@
+:root {
+  --leetcode-orange: #FFA116;
+  --leetcode-black: #293543;
+  --leetcode-gray-1: #495C6D;
+  --leetcode-gray-2: #8C9CAD;
+  --leetcode-gray-3: #EEF0F3;
+  --leetcode-white: #FFFFFF;
+  --leetcode-green: #2CBB5D;
+  --leetcode-red: #FF375F;
+  
+  --shadow-sm: 0 1px 2px rgba(41, 53, 67, 0.05);
+  --shadow-md: 0 2px 4px rgba(41, 53, 67, 0.1);
+}
