@@ -1,4 +1,4 @@
-### Privacy Policy
+## Privacy Policy
 This extension only collects data necessary for its core functionality:
 
 LeetCode solution code and problem details
