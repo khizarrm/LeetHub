@@ -15,19 +15,11 @@ Automatically sync your LeetCode solutions to GitHub.
 4. Start solving on LeetCode
 
 ## How It Works
-LeetHub monitors your LeetCode submissions. When you successfully solve a problem, it automatically commits and pushes the solution to your designated GitHub repository, maintaining your coding portfolio.
+LeetHub monitors your LeetCode submissions. When you successfully solve a problem, it automatically commits and pushes the solution to a GitHub repo names 'LeetCode-Questions'. If it doesn't exist, it creates it for you. The directory stores files with question names and numbers (eg. 1-TwoSum). Inside those files are the answer.txt and question.txt. 
 
 ## Configuration
 1. Click LeetHub extension icon
 2. Connect GitHub account
-3. Select/create target repository
-4. Enable auto-sync
-
-## Contributing
-Contributions welcome! Please read our contributing guidelines before submitting PRs.
 
 ## License
 MIT License
-
-## Support
-Open an issue for bugs or feature requests.
