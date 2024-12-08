@@ -1,6 +1,6 @@
 # LeetHub
-
-Automatically sync your LeetCode solutions to GitHub.
+Automatically sync your LeetCode solutions to GitHub. Currently pending verification from Chrome Web Store. 
+Demo: https://youtu.be/aJoQ0hedZz8
 
 ## Features
 - Auto-upload successful LeetCode submissions
