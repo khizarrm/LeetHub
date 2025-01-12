@@ -13,6 +13,51 @@ const observerConfig = {
     attributes: true
 };
 
+const createUploadModal = () => {
+    const modal = document.createElement('div');
+    modal.innerHTML = '<p>Uploading to Github...</p>';
+    modal.style.background = 'linear-gradient(to right, #4a148c, #1a237e)';
+    modal.style.textAlign = 'center';
+    modal.style.padding = '10px';
+    modal.style.color = 'white';
+    document.body.prepend(modal);
+    return modal;
+};
+
+const createNotificationModal = (message, isError = false) => {
+    const modal = document.createElement('div');
+    modal.innerHTML = `<p>${message}</p>`;
+    modal.style.background = isError ? 
+        'linear-gradient(to right, #c62828, #b71c1c)' : 
+        'linear-gradient(to right, #4a148c, #1a237e)';
+    modal.style.textAlign = 'center';
+    modal.style.padding = '10px';
+    modal.style.color = 'white';
+    document.body.prepend(modal);
+    setTimeout(() => modal.remove(), 3000);
+};
+
+const handleUpload = (editor) => {
+    answer = formatAnswer(editor.textContent);
+    const uploadModal = createUploadModal();
+    
+    chrome.runtime.sendMessage({
+        type: 'completed',
+        answer: answer,
+        title: title,
+        question: question
+    }, function(response) {
+        uploadModal.remove();
+        if (response.success) {
+            createNotificationModal(response.message);
+        } else {
+            createNotificationModal(response.message, true);
+        }
+    });
+};
+
+
+
 // Format answer with proper indentation and structure
 const formatAnswer = (rawAnswer) => {
     let cleanedAnswer = rawAnswer
@@ -60,6 +105,7 @@ const saveQuestionTitle = () => {
                     let formattedTitle = tempTitle.replace(/\.\s+/, '-');
                     title = formattedTitle.split(' ').join('');
                     haveTitle = true;
+                    console.log('Title captured:', title);
                 }
             }
 
@@ -75,6 +121,7 @@ const saveQuestionTitle = () => {
                 .replace(/\n\s+/g, "\n");
             
             haveQuestion = true;
+            console.log('Question captured:', question.substring(0, 100) + '...');
         }
     }
 };
@@ -95,28 +142,14 @@ const submitButtonObserver = new MutationObserver((mutations, observer) => {
             if (!haveAnswer) {
                 const submissionObserver = new MutationObserver((mutations, observer) => {
                     const submissionResult = document.querySelector('[data-e2e-locator="submission-result"]');
-                    if (submissionResult) {
+                    if (submissionResult && submissionResult.textContent.includes('Accepted')) {
                         haveAnswer = true;
                         const editor = document.querySelector('#editor') || 
                             document.querySelector('.monaco-editor') ||
                             document.querySelector('[data-mode="javascript"]');
                         
                         if (editor) {
-                            answer = formatAnswer(editor.textContent);
-                            const modal = document.createElement('div');
-                            modal.innerHTML = '<p>Uploading to Github...</p>';
-                            modal.style.background = 'linear-gradient(to right, #4a148c, #1a237e)';
-                            modal.style.textAlign = 'center'
-                            document.body.prepend(modal);
-                            chrome.runtime.sendMessage({
-                                type: 'completed',
-                                answer: answer,
-                                title: title,
-                                question: question
-                            }, function(response){
-                                modal.innerHTML = response.message;
-                            });
-                            document.body.prepend(modal);
+                            handleUpload(editor);
                         }
                         observer.disconnect();
                     }

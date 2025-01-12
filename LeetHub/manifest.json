@@ -19,11 +19,8 @@
     }
   },
   "permissions": [
-    "scripting", 
-    "webNavigation",
     "identity",
-    "storage",
-    "runtime"
+    "storage"
   ],
   "host_permissions": [
     "https://github.com/*",
