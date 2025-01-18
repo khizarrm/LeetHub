@@ -1,4 +1,4 @@
-import { Octokit } from 'https://cdn.skypack.dev/@octokit/core';
+import { Octokit } from './lib/octokit.js';
 import { config } from './config.js';
 
 const CLIENT_ID = config.CLIENT_ID;
