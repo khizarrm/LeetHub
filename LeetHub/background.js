@@ -22,9 +22,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 if (token) {
                     await chrome.storage.sync.set({ 'github_token': token });
                     console.log('Token stored successfully');
-                    
-                    // const octokit = new Octokit({ auth: token });
-                    // const { data: userData } = await octokit.request('GET /user');
                     console.log('GitHub auth successful for user:', userData.login);
                     
                     sendResponse({ token, success: true });
